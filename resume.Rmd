@@ -1,0 +1,58 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+## Education 
+
+# Columbia University Mailman School of Public Health
+
+M.S in Biostatistics - Pharmaceutical Statistics Track
+
+* Projects:
+
+A Phase III, Randomized, Active Comparator-controlled, Clinical Trial Proposal to Study the Efficacy and Safety of Chloroquine in Patients with COVID-19.
+
+Use Microsoft Access to build a relational database storing geographic distribution, travel history, symptoms, and medications of patients diagnosed with COVID-19.
+
+Using R Studio, built a model to describe the association between gender and salary, and to testify if there is a pattern of discrimination against female doctors at Houston College of Medicine.
+
+* Relevant Coursework: 
+
+Biostatistics Methods, Randomized Clinical Trial, Clinical Trial Methodology, New Drug Development, Analysis of Categorical Data, Survival Analysis.
+
+# Wheaton College
+
+B.A. in Biochemistry, Minor in Mathematics
+
+* Projects:
+
+Effects of Methylmercury on the expression of the gene, gpx1a, from zebrafish, Danio rerio.
+
+The cloning of MCAD gene using mouse liver cells.
+
+* Honors:
+
+Dean’s List – four semesters, Wheaton International Scholarship, Tri-Beta Honor Society.
+
+* Relevant Coursework:
+
+Theory of Probability, Mathematical Statistics, Calculus II, Thermodynamics, Physical Chemistry,
+Aqueous Equilibria, Biochemistry, Genetics, Cell Biology, Molecular Biology.
+
+## Work Experience
+
+# Massachusetts General Hospital
+
+Sample Processing Lab of Cancer Center
+
+Lab Technician - Dr. Jeffrey Supko
+
+
+
+
+
+
