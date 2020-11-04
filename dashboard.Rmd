@@ -1,0 +1,83 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library("p8105.datasets")
+library(plotly)
+library(leaflet)
+library(dplyr)
+library(flexdashboard)
+```
+
+```{r}
+data("ny_noaa")
+
+ny_noaa_subset = 
+  ny_noaa %>%
+  sample_frac(0.001) %>%
+  janitor::clean_names() %>%
+  separate(col = date, into = c("year", "month", "day")) %>%
+  mutate(
+    year = as.integer(year), 
+    month = as.integer(month), 
+    day = as.integer(day), 
+    month = month.name[month],
+    prcp = as.numeric(prcp, na.rm = T) / 10,
+    tmax = as.numeric(tmax, na.rm = T) / 10, 
+    tmin = as.numeric(tmin, na.rm = T) / 10
+  ) %>%
+  filter(
+    !is.na(tmax), 
+    !is.na(tmin), 
+    !is.na(prcp), 
+    !is.na(snow), 
+    !is.na(snwd)
+         ) 
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+ny_noaa_subset %>%
+  group_by(id, year, month) %>%
+  filter(
+    month == "January" | month == "July") %>%
+  summarise(mean_tmax = mean(tmax)) %>%
+  plot_ly(
+    x = ~year, y = ~mean_tmax, color = ~month, type = "scatter", mode = "markers"
+  ) 
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+ny_noaa_subset %>%
+  group_by(year, id) %>%
+  summarise(mean_snow = mean(snow)) %>%
+  plot_ly(
+    x = ~year, y = ~mean_snow, color = ~id, type = "box"
+  )
+```
+
+### Chart C
+
+```{r}
+ny_noaa_subset %>%
+  count(id) %>%
+  mutate(id = fct_reorder(id, n)) %>%
+  plot_ly(x = ~id, y = ~n, color = ~id, type = "bar")
+```
+
